@@ -1,0 +1,20 @@
+<div class="col">
+    <div class="card mb-4 rounded-3 shadow-sm">
+    <div class="card-header py-3">
+        <h4 class="my-0 fw-normal">
+            <div class="alert alert-primary" *ngIf="!customer?.online" role="alert" >
+                {{customer?.name}}
+            </div>
+            <div  class="alert alert-success" *ngIf="customer?.online" role="alert" >
+                {{customer?.name}}
+            </div>
+        </h4>
+    </div>
+    <div class="card-body">
+        <textarea 
+        id="textArea" #textArea rows="3" class="form-control" >
+        </textarea>
+        <button type="button" (click)="enviarMensagem()" class="w-100 btn btn-lg btn-outline-primary">Enviar Mensagem para o Cliente.</button>
+    </div>
+    </div>
+</div>

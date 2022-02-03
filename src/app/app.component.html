@@ -1,0 +1,41 @@
+<div class="card">
+
+  <div class="card-body">
+    <h5 class="card-title">{{customer?.name}}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li *ngFor="let messages of sendMessageCustomerViewModel" class="list-group-item">
+      <span>Enviador Por:{{messages.customerSendId.name}}</span>
+      <p>
+        {{messages.message}}
+      </p>
+    </li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Participantes Chat</h5>
+
+    
+<div class="container py-3">
+  <main>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <app-customers-connected [customerWhoWillSend]="customer" [customer]="cust" *ngFor="let cust of customers"></app-customers-connected>
+    </div>
+  </main>
+</div>
+  </div>
+</div>
+
+
+<app-modal [ngbModalOptions]="ngbModalOptions" #modalChat [modalConfig]="modalConfig">
+  <form class="row g-12">
+    <div class="col-auto">
+      <input type="text" class="form-control" #inputNameChat id="inputText" placeholder="Nome">
+    </div>
+    <div class="col-auto">
+      <button type="button" (click)="enterChat()" class="btn btn-primary mb-3">Entrar Chat</button>
+    </div>
+  </form>
+</app-modal>
